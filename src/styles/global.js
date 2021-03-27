@@ -7,6 +7,9 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
   }
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
   button {
     cursor: pointer;
   }
