@@ -20,7 +20,12 @@ export default function Others() {
           </ImageContainer>
           <h4>{product.name}</h4>
           <span>{product.brand}</span>
-          <p>R${product.price}</p>
+          <p>
+            {product.price.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL'
+            })}
+          </p>
         </Card>
       ))}
     </Container>

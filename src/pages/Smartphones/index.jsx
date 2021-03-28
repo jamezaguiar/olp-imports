@@ -35,7 +35,12 @@ export default function Smartphones() {
             </ImageContainer>
             <h4>{smartphone.name}</h4>
             <span>{smartphone.brand}</span>
-            <p>R${smartphone.price}</p>
+            <p>
+              {smartphone.price.toLocaleString('pt-br', {
+                style: 'currency',
+                currency: 'BRL'
+              })}
+            </p>
           </Card>
         ))}
       </Container>

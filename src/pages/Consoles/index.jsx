@@ -35,7 +35,12 @@ export default function Consoles() {
             </ImageContainer>
             <h4>{console.name}</h4>
             <span>{console.brand}</span>
-            <p>R${console.price}</p>
+            <p>
+              {console.price.toLocaleString('pt-br', {
+                style: 'currency',
+                currency: 'BRL'
+              })}
+            </p>
           </Card>
         ))}
       </Container>
