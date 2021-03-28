@@ -8,7 +8,7 @@ import logo from '../../assets/logo.svg';
 export default function Header() {
   return (
     <Container>
-      <Link to="/smartphones">
+      <Link to="/">
         <img src={logo} alt="OLP Imports logo." />
       </Link>
       <Links>
