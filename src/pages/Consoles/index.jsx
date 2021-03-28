@@ -5,6 +5,8 @@ import api from '../../services/api';
 
 import { Container, Card, ImageContainer } from './styles';
 
+import BrandNavigator from '../../components/BrandNavigator';
+
 export default function Consoles() {
   const { params } = useRouteMatch(); // { brand: string }
   const [consoles, setConsoles] = useState([]);
@@ -20,17 +22,23 @@ export default function Consoles() {
   }, [params.brand]);
 
   return (
-    <Container>
-      {consoles.map((console) => (
-        <Card key={console._id}>
-          <ImageContainer>
-            <img src={console.image_url} alt={console.name} />
-          </ImageContainer>
-          <h4>{console.name}</h4>
-          <span>{console.brand}</span>
-          <p>R${console.price}</p>
-        </Card>
-      ))}
-    </Container>
+    <>
+      <BrandNavigator
+        currentRoute="/consoles"
+        brands={['Microsoft', 'Sony', 'Nintendo']}
+      />
+      <Container>
+        {consoles.map((console) => (
+          <Card key={console._id}>
+            <ImageContainer>
+              <img src={console.image_url} alt={console.name} />
+            </ImageContainer>
+            <h4>{console.name}</h4>
+            <span>{console.brand}</span>
+            <p>R${console.price}</p>
+          </Card>
+        ))}
+      </Container>
+    </>
   );
 }

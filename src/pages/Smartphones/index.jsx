@@ -5,6 +5,8 @@ import api from '../../services/api';
 
 import { Container, Card, ImageContainer } from './styles';
 
+import BrandNavigator from '../../components/BrandNavigator';
+
 export default function Smartphones() {
   const { params } = useRouteMatch(); // { brand: string }
   const [smartphones, setSmartphones] = useState([]);
@@ -20,17 +22,23 @@ export default function Smartphones() {
   }, [params.brand]);
 
   return (
-    <Container>
-      {smartphones.map((smartphone) => (
-        <Card key={smartphone._id}>
-          <ImageContainer>
-            <img src={smartphone.image_url} alt={smartphone.name} />
-          </ImageContainer>
-          <h4>{smartphone.name}</h4>
-          <span>{smartphone.brand}</span>
-          <p>R${smartphone.price}</p>
-        </Card>
-      ))}
-    </Container>
+    <>
+      <BrandNavigator
+        currentRoute="/smartphones"
+        brands={['Samsung', 'Motorola', 'Asus', 'Xiaomi', 'Apple']}
+      />
+      <Container>
+        {smartphones.map((smartphone) => (
+          <Card key={smartphone._id}>
+            <ImageContainer>
+              <img src={smartphone.image_url} alt={smartphone.name} />
+            </ImageContainer>
+            <h4>{smartphone.name}</h4>
+            <span>{smartphone.brand}</span>
+            <p>R${smartphone.price}</p>
+          </Card>
+        ))}
+      </Container>
+    </>
   );
 }
