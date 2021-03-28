@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 
 import api from '../../services/api';
 
 import { Container, Card, ImageContainer } from './styles';
 
 export default function Smartphones() {
+  const { params } = useRouteMatch(); // { brand: string }
   const [smartphones, setSmartphones] = useState([]);
 
   useEffect(() => {
-    api.get('/phones').then((response) => setSmartphones(response.data));
-  }, []);
+    if (params.brand) {
+      api
+        .get(`/phones/${params.brand}`)
+        .then((response) => setSmartphones(response.data));
+    } else {
+      api.get('/phones').then((response) => setSmartphones(response.data));
+    }
+  }, [params.brand]);
 
   return (
     <Container>

@@ -8,8 +8,8 @@ import Others from '../pages/Others';
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/smartphones" component={Smartphones} />
-      <Route path="/consoles" component={Consoles} />
+      <Route path="/smartphones/:brand?" component={Smartphones} />
+      <Route path="/consoles/:brand?" component={Consoles} />
       <Route path="/outros" component={Others} />
     </Switch>
   );
