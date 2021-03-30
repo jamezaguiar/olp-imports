@@ -25,7 +25,7 @@ export default function Smartphones() {
     <>
       <BrandNavigator
         currentRoute="/smartphones"
-        brands={['Samsung', 'Motorola', 'Asus', 'Xiaomi', 'Apple']}
+        brands={['Samsung', 'Motorola', 'Asus', 'Xiaomi', 'Pocophone', 'Apple']}
       />
       <Container>
         {smartphones.map((smartphone) => (
